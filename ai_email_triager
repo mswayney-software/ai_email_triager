@@ -1,0 +1,417 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "99e7130c-1ae2-4d1b-96ed-0e415258e191",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-haiku-4-5-20251001",
+          "mode": "list",
+          "cachedResultName": "Claude Haiku 4.5"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.5,
+      "position": [
+        352,
+        208
+      ],
+      "id": "510611d5-3182-4203-9823-57828c4ca022",
+      "name": "Anthropic Chat Model",
+      "credentials": {
+        "anthropicApi": {
+          "id": "PkeffdiQdAyuVLbR",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "claude-sonnet-4-6",
+          "cachedResultName": "Claude Sonnet 4.6"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.5,
+      "position": [
+        1344,
+        160
+      ],
+      "id": "81d13c39-1a3e-44ca-9202-c1697e887476",
+      "name": "Anthropic Chat Model1",
+      "credentials": {
+        "anthropicApi": {
+          "id": "PkeffdiQdAyuVLbR",
+          "name": "Anthropic account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  { json: { id:\"01\", subject:\"My candle arrived shattered\", body:\"Hi, the large amber jar candle I ordered showed up cracked in three places and wax everywhere in the box. Can I get a replacement?\", true_category:\"support\", true_urgency:\"high\", expected_handling:\"draft\", is_trap:false } },\n  { json: { id:\"02\", subject:\"Where is my order?\", body:\"Hey there, just wondering how I can track order #10428. I got a confirmation but no shipping update yet.\", true_category:\"support\", true_urgency:\"medium\", expected_handling:\"draft\", is_trap:false } },\n  { json: { id:\"03\", subject:\"How do I clean the ceramic diffuser?\", body:\"Quick question - what's the best way to clean the reed diffuser base without damaging the finish? Thanks!\", true_category:\"support\", true_urgency:\"low\", expected_handling:\"draft\", is_trap:false } },\n  { json: { id:\"04\", subject:\"Wrong item in my box\", body:\"I ordered the eucalyptus soy candle but received a lavender one instead. Order #10455. How do we fix this?\", true_category:\"support\", true_urgency:\"medium\", expected_handling:\"draft\", is_trap:false } },\n  { json: { id:\"05\", subject:\"Order still not here - event is tomorrow\", body:\"My order #10470 still hasn't arrived and I need it for an event tomorrow evening. Is there any way to expedite or confirm it's coming?\", true_category:\"support\", true_urgency:\"high\", expected_handling:\"draft\", is_trap:false } },\n  { json: { id:\"06\", subject:\"Change shipping address\", body:\"Hi, I think I entered my old address on order #10481. Can you update it to 44 Birch Lane before it ships?\", true_category:\"support\", true_urgency:\"medium\", expected_handling:\"draft\", is_trap:false } },\n  { json: { id:\"07\", subject:\"Return policy question\", body:\"What's your return window? I bought a gift set two weeks ago and may need to send part of it back.\", true_category:\"support\", true_urgency:\"low\", expected_handling:\"draft\", is_trap:false } },\n  { json: { id:\"08\", subject:\"Restock on cedar collection?\", body:\"Do you know if the cedar + sage collection will be restocked? It's been out for a while.\", true_category:\"support\", true_urgency:\"low\", expected_handling:\"draft\", is_trap:false } },\n  { json: { id:\"09\", subject:\"Discount code won't apply\", body:\"I'm trying to use WELCOME10 at checkout and it keeps saying invalid. Am I doing something wrong?\", true_category:\"support\", true_urgency:\"medium\", expected_handling:\"draft\", is_trap:false } },\n  { json: { id:\"10\", subject:\"I received someone else's order and info\", body:\"This is a bit alarming - I got a package with another customer's name, address, and a packing slip with their email. Wanted to flag it.\", true_category:\"support\", true_urgency:\"high\", expected_handling:\"review\", is_trap:true } },\n  { json: { id:\"11\", subject:\"Missing assembly instructions\", body:\"The lantern set didn't come with instructions and I can't figure out how the panels attach. Any help?\", true_category:\"support\", true_urgency:\"low\", expected_handling:\"draft\", is_trap:false } },\n  { json: { id:\"12\", subject:\"How does the monthly candle subscription work?\", body:\"I'm not a customer yet but I'm considering the monthly box. Can you explain how billing and shipping work before I sign up?\", true_category:\"sales\", true_urgency:\"medium\", expected_handling:\"draft\", is_trap:true } },\n  { json: { id:\"13\", subject:\"Charged twice for one order\", body:\"I see two identical charges of $58.00 on my card for order #10490 but I only placed one order. Please refund the duplicate.\", true_category:\"billing\", true_urgency:\"high\", expected_handling:\"review\", is_trap:false } },\n  { json: { id:\"14\", subject:\"Need a receipt for taxes\", body:\"Could you send an itemized invoice for order #10399? I need it for business expense records. Thanks.\", true_category:\"billing\", true_urgency:\"medium\", expected_handling:\"review\", is_trap:false } },\n  { json: { id:\"15\", subject:\"Unauthorized charge on my card\", body:\"There's a $74 charge from your store I don't recognize and I never placed this order. If this isn't resolved I'll dispute it with my bank.\", true_category:\"billing\", true_urgency:\"high\", expected_handling:\"review\", is_trap:false } },\n  { json: { id:\"16\", subject:\"Refund still not showing\", body:\"I was told my refund for order #10350 was processed 5 days ago but I don't see it on my statement yet. Can you check?\", true_category:\"billing\", true_urgency:\"medium\", expected_handling:\"review\", is_trap:false } },\n  { json: { id:\"17\", subject:\"Update card for subscription\", body:\"My card on file expired. How do I update payment info for my monthly subscription so it doesn't lapse?\", true_category:\"billing\", true_urgency:\"low\", expected_handling:\"review\", is_trap:false } },\n  { json: { id:\"18\", subject:\"Site won't complete my payment\", body:\"Your checkout page kept erroring when I hit pay, so I tried three times - and now I see THREE pending charges on my card. Help.\", true_category:\"billing\", true_urgency:\"high\", expected_handling:\"review\", is_trap:true } },\n  { json: { id:\"19\", subject:\"Cancel subscription and refund\", body:\"Please cancel my monthly box subscription and refund the charge from yesterday - I meant to cancel before it renewed.\", true_category:\"billing\", true_urgency:\"medium\", expected_handling:\"review\", is_trap:false } },\n  { json: { id:\"20\", subject:\"hey quick thing about the bowman invoice\", body:\"Hey! Hope you're doing well. Random - did you ever pay that Bowman Supply invoice from last month? They emailed me since I'm on the account. Lmk!\", true_category:\"billing\", true_urgency:\"medium\", expected_handling:\"review\", is_trap:true } },\n  { json: { id:\"21\", subject:\"Wholesale inquiry\", body:\"Hi, I run a small chain of boutique hotels and I'm interested in carrying your candles in our rooms. Do you offer wholesale pricing?\", true_category:\"sales\", true_urgency:\"medium\", expected_handling:\"draft\", is_trap:false } },\n  { json: { id:\"22\", subject:\"Do you sell gift cards?\", body:\"Looking to buy a gift for my sister but not sure what she'd want - do you offer gift cards?\", true_category:\"sales\", true_urgency:\"low\", expected_handling:\"draft\", is_trap:false } },\n  { json: { id:\"23\", subject:\"Corporate gifting for 50 staff\", body:\"We'd like to send a small gift to about 50 employees for the holidays. Can you handle an order that size and do custom notes?\", true_category:\"sales\", true_urgency:\"medium\", expected_handling:\"draft\", is_trap:false } },\n  { json: { id:\"24\", subject:\"Large order for a wedding next week\", body:\"I need roughly 80 tealights and 20 jar candles for a wedding next Saturday. Ready to order today if you can confirm stock and timing.\", true_category:\"sales\", true_urgency:\"high\", expected_handling:\"draft\", is_trap:false } },\n  { json: { id:\"25\", subject:\"When is the fig candle back?\", body:\"I keep checking for the black fig candle - any idea when it returns? I want to buy a few as soon as it's available.\", true_category:\"sales\", true_urgency:\"low\", expected_handling:\"draft\", is_trap:false } },\n  { json: { id:\"26\", subject:\"Bulk purchase - payment by check\", body:\"I want to place a very large order ($6,800) for overseas resale. I will send a cashier's check for more than the total; please refund the difference and ship to my freight forwarder.\", true_category:\"spam\", true_urgency:\"high\", expected_handling:\"ignore\", is_trap:true } },\n  { json: { id:\"27\", subject:\"Collab? Free product for posts\", body:\"Hi! I'm a lifestyle creator with 40k followers. I'd love to feature your candles in exchange for free product. Open to a collab?\", true_category:\"sales\", true_urgency:\"low\", expected_handling:\"review\", is_trap:true } },\n  { json: { id:\"28\", subject:\"Boost your store traffic 300%\", body:\"We help e-commerce brands triple their organic traffic. Reply YES and we'll send a free audit of your site within 24 hours.\", true_category:\"spam\", true_urgency:\"low\", expected_handling:\"ignore\", is_trap:false } },\n  { json: { id:\"29\", subject:\"You've won a $1000 gift card!\", body:\"Congratulations! You have been selected to receive a $1000 gift card. Click here to claim before it expires today.\", true_category:\"spam\", true_urgency:\"low\", expected_handling:\"ignore\", is_trap:false } },\n  { json: { id:\"30\", subject:\"Turn $250 into $5000\", body:\"Our AI trading bot delivers guaranteed returns. Join thousands of investors. Limited spots. Act now.\", true_category:\"spam\", true_urgency:\"low\", expected_handling:\"ignore\", is_trap:false } },\n  { json: { id:\"31\", subject:\"More sales on autopilot\", body:\"Want more revenue without lifting a finger? Our platform automates your entire funnel. Book a demo today.\", true_category:\"spam\", true_urgency:\"low\", expected_handling:\"ignore\", is_trap:false } },\n  { json: { id:\"32\", subject:\"Action required: your domain expires\", body:\"Your domain registration expires in 48 hours. Submit payment immediately to avoid losing your website. Pay now.\", true_category:\"spam\", true_urgency:\"low\", expected_handling:\"ignore\", is_trap:false } },\n  { json: { id:\"33\", subject:\"URGENT: Your store account is suspended\", body:\"We detected suspicious activity. Your account has been SUSPENDED. Verify your login within 2 hours or it will be permanently deleted. Click here.\", true_category:\"spam\", true_urgency:\"high\", expected_handling:\"ignore\", is_trap:true } },\n  { json: { id:\"34\", subject:\"Dinner Friday?\", body:\"Heyyy are you free Friday night? A few of us are grabbing dinner at that new ramen place. Would love to see you!\", true_category:\"personal\", true_urgency:\"low\", expected_handling:\"review\", is_trap:false } },\n  { json: { id:\"35\", subject:\"Sunday lunch\", body:\"Hi sweetheart, are you coming over for lunch Sunday? Let me know how many so I can plan. Love you.\", true_category:\"personal\", true_urgency:\"medium\", expected_handling:\"review\", is_trap:false } },\n  { json: { id:\"36\", subject:\"Long time no talk\", body:\"Hey stranger! It's been forever since college. Saw your shop online and I'm so proud of you. We should catch up soon.\", true_category:\"personal\", true_urgency:\"low\", expected_handling:\"review\", is_trap:false } },\n  { json: { id:\"37\", subject:\"Photos from the trip\", body:\"Finally got around to sending these - the lake house photos from last summer. Such a good weekend. Miss you!\", true_category:\"personal\", true_urgency:\"low\", expected_handling:\"review\", is_trap:false } },\n  { json: { id:\"38\", subject:\"catching up + a small favor\", body:\"Hey! Been way too long, we need to grab a beer. Also btw - my sister wants to order a bunch of candles for her shop, can you send wholesale pricing?\", true_category:\"personal\", true_urgency:\"medium\", expected_handling:\"review\", is_trap:true } },\n  { json: { id:\"39\", subject:\"IS MY ORDER COMING????\", body:\"URGENT!!!! I ordered a SINGLE candle and just want to know if the coupon worked, the page was confusing. PLEASE RESPOND.\", true_category:\"support\", true_urgency:\"low\", expected_handling:\"draft\", is_trap:true } },\n  { json: { id:\"40\", subject:\"Allergic reaction concern\", body:\"My partner broke out in a rash after we lit the new candle. Are there nut oils in the ingredients? Want to know before using others.\", true_category:\"support\", true_urgency:\"high\", expected_handling:\"review\", is_trap:true } }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "ef4f2ce1-e80f-45c6-912b-209152f91ba9",
+      "name": "Seed Emails"
+    },
+    {
+      "parameters": {
+        "jsCode": "const out = [];\n\nfor (const item of $input.all()) {\n  // The LLM's reply text lives here. Field name may vary — see note below.\n  let raw = item.json.text ?? item.json.response ?? \"\";\n\n  // Step 1: strip markdown fences and trim whitespace\n  let cleaned = raw.replace(/```json/gi, \"\").replace(/```/g, \"\").trim();\n\n  let parsed = null;\n  let review = false;\n  let reason = \"\";\n  let route = \"draft\";\n\n  // Step 2: try to parse — if it fails, flag instead of crash\n  try {\n    parsed = JSON.parse(cleaned);\n  } catch (e) {\n    review = true;\n    reason = \"Could not parse JSON\";\n  }\n\n  // Step 3: validate the shape (only if it parsed)\n  if (parsed) {\n    const okCategory = [\"billing\",\"support\",\"sales\",\"spam\",\"personal\",\"other\"].includes(parsed.category);\n    const okConfidence = typeof parsed.confidence === \"number\";\n    const hasFields = parsed.urgency && parsed.suggested_action && parsed.intent_summary;\n\n    if (!okCategory || !okConfidence || !hasFields) {\n      review = true;\n      reason = \"Parsed but failed validation\";\n    }\n\n    // Business rule: low confidence always goes to a human\n    if (okConfidence && parsed.confidence < 0.7) {\n      review = true;\n      reason = \"Low confidence\";\n    }\n\n    // Business rule: sensitive categories always get human eyes, even at high confidence\n    if ([\"billing\", \"personal\"].includes(parsed.category)) {\n      review = true;\n      reason = reason ? reason + \" + sensitive category\" : \"Sensitive category\";\n    }\n\n    // Decide this email's fate: ignore, review, or draft\n                              // default: safe to auto-draft\n    if (parsed.safety_flag === true) {\n      route = \"review\";\n      reason = reason ? reason + \" + safety/privacy\" : \"Safety/privacy flag\";\n    } else if (parsed.category === \"spam\") {\n      route = \"ignore\";\n    } else if (review) {\n      route = \"review\";\n    }\n  }\n\n  out.push({\n    json: {\n      ...(parsed ?? {}),     // the classification fields, if we got them\n      needs_review: review,  // the flag your reasoning called for\n      review_reason: reason, // why it was flagged (great for your writeup)\n      raw_output: raw,        // keep the original, so nothing is ever lost\n      route: route,\n    }\n  });\n}\n\nreturn out;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        768,
+        0
+      ],
+      "id": "aed9a4c5-f0db-48d7-adde-b655af374733",
+      "name": "Validate & Flag"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an email triage assistant for a small home-goods store. Classify the single customer email below.\n\nReturn ONLY a JSON object, with no explanation, no markdown, and no text before or after it. Use exactly this shape:\n\n{\n  \"category\": \"billing | support | sales | spam | personal | other\",\n  \"urgency\": \"high | medium | low\",\n  \"intent_summary\": \"one short sentence describing what they want\",\n  \"suggested_action\": \"draft_reply | escalate | ignore\",\n  \"safety_flag\": false,\n  \"confidence\": 0.0\n}\n\nRules:\n- confidence is a number from 0 to 1 for how sure you are of the category.\n- If the email is ambiguous, mixes categories, or feels like a scam dressed up as something legit, drop confidence below 0.7.\n- Do not invent fields. Output the JSON object only.\n- Set safety_flag to true ONLY for genuine real-world safety, legal, or privacy situations: physical health, injury, or allergic reactions; an explicit legal threat (lawyers, lawsuits, regulators); or actual exposed personal data belonging to a real person (a privacy incident).\n- Do NOT set safety_flag for: product damage or defects, shipping problems, phishing or scam emails, marketing or financial spam, or generic security-themed junk mail. These are not safety issues even if they mention money, accounts, or urgency.\n\nEmail subject: {{ $json.subject }}\nEmail body: {{ $json.body }}",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        416,
+        0
+      ],
+      "id": "f5dcbff1-96bf-40dc-83de-17206e1b0c96",
+      "name": "Classify & Flag"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.route }}",
+                    "rightValue": "review",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "34f93dfd-4992-478b-8189-61b5017ac58b"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "047074fb-a23e-4d82-8888-79cf47074107",
+                    "leftValue": "={{ $json.route }}",
+                    "rightValue": "ignore",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "1de00497-971e-467f-a88f-7843a0b1e63a",
+                    "leftValue": "={{ $json.route }}",
+                    "rightValue": "draft",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        976,
+        -80
+      ],
+      "id": "50327920-ce78-4203-b667-25eb4629575a",
+      "name": "Switch"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1168,
+        -304
+      ],
+      "id": "103bd01f-3997-4dc5-8fa7-b528fb6f1f43",
+      "name": "review",
+      "notes": "Human Review (log later)"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1328,
+        -176
+      ],
+      "id": "2ff0e296-8e19-4de7-abf5-13a6a02a9881",
+      "name": "ignore"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a warm, professional customer support agent for a small home-goods store called Maple & Pine.\n\nWrite a brief, friendly reply to the customer email below. Address their specific issue directly, be reassuring, and keep it to a few sentences. Sign off as \"The Maple & Pine Team\".\n\nOutput only the reply text — no subject line, no preamble, no quotes.\n\nCustomer subject: {{ $('Seed Emails').item.json.subject }}\nCustomer email: {{ $('Seed Emails').item.json.body }}",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        1344,
+        -16
+      ],
+      "id": "f1fba559-e7a6-41ad-a6b3-15098b12d21c",
+      "name": "draft"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        320
+      ],
+      "id": "dc935a64-26e0-4822-bc2c-1ead2cd54331",
+      "name": "fallback"
+    },
+    {
+      "parameters": {
+        "jsCode": "const seedItems = $('Seed Emails').all();   // originals, untouched\nconst input = $input.all();\nconst rows = [];\nlet correct = 0;\n\nfor (let i = 0; i < input.length; i++) {\n  const d = input[i].json;\n  const seed = seedItems[i] ? seedItems[i].json : {};   // same position = same email\n\n  const expected = seed.expected_handling ?? \"MISSING\";\n  const trueCat  = seed.true_category ?? \"MISSING\";\n  const actual   = d.route;\n  const hit = expected === actual;\n  if (hit) correct++;\n\n  rows.push({\n    json: {\n      id: seed.id ?? \"?\",\n      category: d.category,\n      true_category: trueCat,\n      expected_handling: expected,\n      actual_route: actual,\n      match: hit ? \"✓\" : \"✗ MISS\",\n      is_trap: seed.is_trap,\n      confidence: d.confidence\n    }\n  });\n}\n\nrows.unshift({\n  json: {\n    id: \"SUMMARY\",\n    category: `${correct}/40 correct`,\n    true_category: `${Math.round((correct/40)*100)}% accuracy`,\n    expected_handling: \"\", actual_route: \"\", match: \"\", is_trap: \"\", confidence: \"\"\n  }\n});\n\nreturn rows;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        848,
+        208
+      ],
+      "id": "aa13774b-cca9-4aa0-82ba-c1c481e54977",
+      "name": "score"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Seed Emails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Classify & Flag",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anthropic Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "draft",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Seed Emails": {
+      "main": [
+        [
+          {
+            "node": "Classify & Flag",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate & Flag": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "score",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify & Flag": {
+      "main": [
+        [
+          {
+            "node": "Validate & Flag",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "review",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ignore",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "draft",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "fallback",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "68a2e7f5-4da3-4895-8bf1-edf44de93e3f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "4ad084c66c641f28090f12c4ed9f4e51f761e35cec981fccbaef2767b833191a"
+  },
+  "nodeGroups": [],
+  "id": "dEVTsyNJNwcOY5hf",
+  "tags": []
+}
+id,sender_name,sender_email,subject,body,true_category,true_urgency,expected_handling,is_trap,note
+01,Dana Reyes,dana.reyes@gmail.com,My candle arrived shattered,"Hi, the large amber jar candle I ordered showed up cracked in three places and wax everywhere in the box. Can I get a replacement?",support,high,auto_draft,no,Clear support: damaged item.
+02,Marcus Lee,m.lee88@outlook.com,Where is my order?,"Hey there, just wondering how I can track order #10428. I got a confirmation but no shipping update yet.",support,medium,auto_draft,no,Clear support: tracking question.
+03,Priya Nair,priya.nair@yahoo.com,How do I clean the ceramic diffuser?,"Quick question - what's the best way to clean the reed diffuser base without damaging the finish? Thanks!",support,low,auto_draft,no,Clear support: product care.
+04,Tom Becker,tbecker@protonmail.com,Wrong item in my box,"I ordered the eucalyptus soy candle but received a lavender one instead. Order #10455. How do we fix this?",support,medium,auto_draft,no,Clear support: wrong item.
+05,Grace Okafor,grace.okafor@gmail.com,Order still not here - event is tomorrow,"My order #10470 still hasn't arrived and I need it for an event tomorrow evening. Is there any way to expedite or confirm it's coming?",support,high,auto_draft,no,Clear support but time-sensitive.
+06,Sam Whitfield,sam.w@gmail.com,Change shipping address,"Hi, I think I entered my old address on order #10481. Can you update it to 44 Birch Lane before it ships?",support,medium,auto_draft,no,Clear support: address change.
+07,Elena Petrova,epetrova@gmail.com,Return policy question,"What's your return window? I bought a gift set two weeks ago and may need to send part of it back.",support,low,auto_draft,no,Clear support: returns.
+08,Jordan Kim,jordan.kim@icloud.com,Restock on cedar collection?,"Do you know if the cedar + sage collection will be restocked? It's been out for a while.",support,low,auto_draft,no,Clear support: restock info.
+09,Hannah Cole,hcole@gmail.com,Discount code won't apply,"I'm trying to use WELCOME10 at checkout and it keeps saying invalid. Am I doing something wrong?",support,medium,auto_draft,no,Clear support: coupon at checkout.
+10,Derek Olsen,derek.olsen@gmail.com,I received someone else's order and info,"This is a bit alarming - I got a package with another customer's name, address, and a packing slip with their email. Wanted to flag it.",support,high,escalate_review,yes,Privacy incident - sensitive, route to human.
+11,Aisha Rahman,aisha.r@gmail.com,Missing assembly instructions,"The lantern set didn't come with instructions and I can't figure out how the panels attach. Any help?",support,low,auto_draft,no,Clear support: instructions.
+12,Brian Foster,bfoster@gmail.com,How does the monthly candle subscription work?,"I'm not a customer yet but I'm considering the monthly box. Can you explain how billing and shipping work before I sign up?",sales,medium,auto_draft,yes,Looks like support but it's a pre-sale prospect.
+13,Nicole Adams,nicole.adams@gmail.com,Charged twice for one order,"I see two identical charges of $58.00 on my card for order #10490 but I only placed one order. Please refund the duplicate.",billing,high,escalate_review,no,Clear billing: double charge.
+14,Victor Cruz,vcruz@gmail.com,Need a receipt for taxes,"Could you send an itemized invoice for order #10399? I need it for business expense records. Thanks.",billing,medium,escalate_review,no,Clear billing: invoice request.
+15,Olivia Tran,olivia.tran@gmail.com,Unauthorized charge on my card,"There's a $74 charge from your store I don't recognize and I never placed this order. If this isn't resolved I'll dispute it with my bank.",billing,high,escalate_review,no,Clear billing: disputed charge.
+16,Ryan Mitchell,rmitchell@gmail.com,Refund still not showing,"I was told my refund for order #10350 was processed 5 days ago but I don't see it on my statement yet. Can you check?",billing,medium,escalate_review,no,Clear billing: refund status.
+17,Sofia Alvarez,sofia.a@gmail.com,Update card for subscription,"My card on file expired. How do I update payment info for my monthly subscription so it doesn't lapse?",billing,low,escalate_review,no,Clear billing: payment update.
+18,Liam Sullivan,lsullivan@gmail.com,Site won't complete my payment,"Your checkout page kept erroring when I hit pay, so I tried three times - and now I see THREE pending charges on my card. Help.",billing,high,escalate_review,yes,Looks like a support/site bug but core issue is billing.
+19,Maya Joshi,maya.joshi@gmail.com,Cancel subscription and refund,"Please cancel my monthly box subscription and refund the charge from yesterday - I meant to cancel before it renewed.",billing,medium,escalate_review,no,Clear billing: cancel + refund.
+20,Kev,kev.tanaka@gmail.com,hey quick thing about the bowman invoice,"Hey! Hope you're doing well. Random - did you ever pay that Bowman Supply invoice from last month? They emailed me since I'm on the account. Lmk!",billing,medium,escalate_review,yes,Personal tone from a friend/bookkeeper but it's a billing matter.
+21,Rebecca Stone,rebecca@stonehospitality.com,Wholesale inquiry,"Hi, I run a small chain of boutique hotels and I'm interested in carrying your candles in our rooms. Do you offer wholesale pricing?",sales,medium,auto_draft,no,Clear sales: wholesale lead.
+22,Andre Wilson,andre.w@gmail.com,Do you sell gift cards?,"Looking to buy a gift for my sister but not sure what she'd want - do you offer gift cards?",sales,low,auto_draft,no,Clear sales: gift card.
+23,Tanya Brooks,tbrooks@meridiancorp.com,Corporate gifting for 50 staff,"We'd like to send a small gift to about 50 employees for the holidays. Can you handle an order that size and do custom notes?",sales,medium,auto_draft,no,Clear sales: corporate gifting.
+24,Chris Donovan,cdonovan@gmail.com,Large order for a wedding next week,"I need roughly 80 tealights and 20 jar candles for a wedding next Saturday. Ready to order today if you can confirm stock and timing.",sales,high,auto_draft,no,Clear sales: large time-sensitive order.
+25,Isabella Moretti,bella.moretti@gmail.com,When is the fig candle back?,"I keep checking for the black fig candle - any idea when it returns? I want to buy a few as soon as it's available.",sales,low,auto_draft,no,Clear sales: purchase intent on restock.
+26,Mr. Daniel Hughes,danielhughes.export@consultant-mail.com,Bulk purchase - payment by check,"I want to place a very large order ($6,800) for overseas resale. I will send a cashier's check for more than the total; please refund the difference and ship to my freight forwarder.",spam,high,ignore,yes,Overpayment scam disguised as a big sales order.
+27,Zoe Lambert,zoe@zoelambertcreates.com,Collab? Free product for posts,"Hi! I'm a lifestyle creator with 40k followers. I'd love to feature your candles in exchange for free product. Open to a collab?",sales,low,escalate_review,yes,Borderline marketing/sales vs low-value - route to human.
+28,Growth Team,outreach@rankboostpro.net,Boost your store traffic 300%,"We help e-commerce brands triple their organic traffic. Reply YES and we'll send a free audit of your site within 24 hours.",spam,low,ignore,no,Cold SEO pitch - spam.
+29,Rewards Center,no-reply@prize-claim-now.info,You've won a $1000 gift card!,"Congratulations! You have been selected to receive a $1000 gift card. Click here to claim before it expires today.",spam,low,ignore,no,Phishing/prize scam.
+30,Investment Desk,team@cryptowealth-daily.biz,Turn $250 into $5000,"Our AI trading bot delivers guaranteed returns. Join thousands of investors. Limited spots. Act now.",spam,low,ignore,no,Crypto scam spam.
+31,Sales Engine,hello@leadmachine-saas.io,More sales on autopilot,"Want more revenue without lifting a finger? Our platform automates your entire funnel. Book a demo today.",spam,low,ignore,no,Generic SaaS mass mail.
+32,Domain Services,billing@domain-renewal-notice.net,Action required: your domain expires,"Your domain registration expires in 48 hours. Submit payment immediately to avoid losing your website. Pay now.",spam,low,ignore,no,Fake domain-renewal phishing.
+33,Account Security,security@account-verify-alert.com,URGENT: Your store account is suspended,"We detected suspicious activity. Your account has been SUSPENDED. Verify your login within 2 hours or it will be permanently deleted. Click here.",spam,high,ignore,yes,Phishing that fakes urgency - should still be ignored.
+34,Jess,jess.romano@gmail.com,Dinner Friday?,"Heyyy are you free Friday night? A few of us are grabbing dinner at that new ramen place. Would love to see you!",personal,low,escalate_review,no,Clear personal: social invite.
+35,Mom,linda.harper@gmail.com,Sunday lunch,"Hi sweetheart, are you coming over for lunch Sunday? Let me know how many so I can plan. Love you.",personal,medium,escalate_review,no,Clear personal: family.
+36,Patrick Doyle,pdoyle@gmail.com,Long time no talk,"Hey stranger! It's been forever since college. Saw your shop online and I'm so proud of you. We should catch up soon.",personal,low,escalate_review,no,Clear personal: old friend.
+37,Nora,nora.k.bishop@gmail.com,Photos from the trip,"Finally got around to sending these - the lake house photos from last summer. Such a good weekend. Miss you!",personal,low,escalate_review,no,Clear personal: friend sharing photos.
+38,Greg,greg.santos@gmail.com,catching up + a small favor,"Hey! Been way too long, we need to grab a beer. Also btw - my sister wants to order a bunch of candles for her shop, can you send wholesale pricing?",personal,medium,escalate_review,yes,Personal note that also contains a business/sales ask - ambiguous.
+39,Whitney Park,wpark@gmail.com,IS MY ORDER COMING????,"URGENT!!!! I ordered a SINGLE candle and just want to know if the coupon worked, the page was confusing. PLEASE RESPOND.",support,low,auto_draft,yes,Loud tone but trivial low-urgency coupon question.
+40,Caleb Nguyen,caleb.nguyen@gmail.com,Allergic reaction concern,"My partner broke out in a rash after we lit the new candle. Are there nut oils in the ingredients? Want to know before using others.",support,high,escalate_review,yes,Health/safety angle - sensitive, route to human despite being support.
